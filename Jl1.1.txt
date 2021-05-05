@@ -1,0 +1,23 @@
+function user_reverse!(X::Vector{Int})
+    i=size(X, 1)
+    Y=X
+    while(i>0)
+        Y[size(X, 1)-i+1]=X[i]
+        i-=1
+    end
+    return Y
+end
+
+function user_reverse!(X::Matrix, dim::Int)
+    for i in 1:dim
+        X[i,:] = reverse!(X[i,:])
+    end
+    return X
+end
+
+function main()
+    A = Vector{Int}(2:8)
+    B = [[1, 4, 7] [2, 5, 8] [3, 6, 9]]
+    println(user_reverse!(A))
+    println(user_reverse!(B, 2))
+end

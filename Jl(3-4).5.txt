@@ -1,0 +1,11 @@
+function slice(A::Vector{T},p::Vector{Int}) ::Vector{T} where T
+    S=Vector{Int}(undef,size(p))
+    for i in 1:size(p)
+        S[i]=A[i]
+    end
+    return S
+end
+
+function slice(A::Vector{T},p::Vector{Int}) ::Vector{T} where T
+    return A[p]
+end

@@ -1,0 +1,4 @@
+function sortkey(a, key_values)
+    index=sortperm(key_values)
+    return a[index]
+end

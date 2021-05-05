@@ -1,0 +1,14 @@
+function findallmax(A)
+    max=A[firstindex(A)]
+    max_num=[]
+    for i in (firstindex(A):lastindex(A))
+        if A[i]>max
+            max=A[i]
+            max_num=[]
+        end
+        if A[i]==max
+            append!(max_num, i)
+        end
+    end
+    return max_num
+end

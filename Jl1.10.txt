@@ -1,0 +1,14 @@
+function nummax(A)
+    max=A[firstindex(A)]
+    cntr=1
+    for i in (firstindex(A):lastindex(A))
+        if A[i]>max
+            max=A[i]
+            cntr=0
+        end
+        if A[i]==max
+            cntr+=1
+        end
+    end
+    return cntr
+end
