@@ -1,0 +1,54 @@
+function get_matrix_in_power_of_two(M::Matrix,p)
+    if p==0
+        E=zeros((2,2))
+        E[1,1]=1
+        E[2,2]=1
+        return E
+    end
+    if p==1
+        return M
+    else
+        L=get_matrix_in_power_of_two(M,p÷2)
+        return pow(M, 2)
+    end
+end
+
+function Fibbonaci(n)
+    if n==0
+        return 0
+    end
+    if n==1
+        return 1
+    end
+    if n==2
+        return 1
+    end
+    n-=1
+    M=fill(Int(1),(2,2))
+    M[2,2]=0
+    E=zeros(Integer,(2,2))
+    E[1,1]=1
+    E[2,2]=1
+    m=1
+    while m<=n
+        m*=2
+    end
+    m=m÷2
+    powers=[]
+    while m>0
+        tmp=n%m
+        powers_coeff=(n-tmp)÷m
+        n=tmp
+        m=m÷2
+        pushfirst!(powers,powers_coeff)
+    end
+
+    for i in 1:length(powers)
+        tmp=get_matrix_in_power_of_two(M,2^(i-1))
+        for j in 1:powers[i]
+            E=E*tmp
+        end
+    end
+
+    return E[1,1]
+end

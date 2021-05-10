@@ -1,0 +1,15 @@
+function log(a::Real,b::Real,eps::Real)
+    z,t,y=x,1,0
+    while z>a || z<1/a || t>ε   
+        if z>a
+            z/=a
+            y+=t 
+        elseif z<1/a
+            z*=a
+            y-=t
+        else
+            t/=2
+            z*=z
+        end
+    end
+end

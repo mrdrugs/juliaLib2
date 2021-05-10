@@ -1,0 +1,11 @@
+function inv(m::Integer,n::Integer)
+    x,y,c=gcd_ext(m,n)
+    if c!=1
+        return nothing
+    else
+        while x<0
+            x+=n
+        end
+        return x
+    end
+end

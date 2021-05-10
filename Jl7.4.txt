@@ -1,0 +1,9 @@
+function isprime(n::Int)::Bool
+    spqr=convert(Int,(ceil(sqrt(n))))
+    for i in 2:spqr
+        if n%i==0 && i!=n
+            return false
+        end
+    end
+    return true
+end

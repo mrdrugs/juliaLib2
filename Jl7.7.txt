@@ -1,0 +1,38 @@
+function factor(n)
+    divs=[]
+    div_powers=[]
+    spqr=convert(Int,(ceil(sqrt(n))))
+    i=2
+    original=n
+    while i*i<=original
+        if n%i==0
+            if length(divs)==0 || divs[lastindex(divs)]!=i
+                push!(divs,i)
+                push!(div_powers,1)
+            else
+                div_powers[lastindex(div_powers)]+=1
+            end
+            n=n÷i
+        else
+            i+=1
+        end
+    end
+    if n!=1
+        if divs[lastindex(divs)]==n
+            div_powers[lastindex(div_powers)]+=1
+        else
+            push!(divs,n)
+            push!(div_powers,1)
+        end
+    end
+    return divs,div_powers
+end
+
+function eller(n)
+    divs,div_powers=factor(n)
+    result=1
+    for i in 1:lastindex(divs)
+        result*=(divs[i]-1)*(divs[i]^(div_powers[i]-1))
+    end
+    return result
+end

@@ -1,0 +1,7 @@
+function gcd(a,b)
+    if b==0
+        return (1,0,a)
+    end
+    y,x,c=gcd(b,a%b)
+    return (x,y-(a÷b)*x,c)
+end
